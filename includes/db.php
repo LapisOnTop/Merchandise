@@ -1,11 +1,11 @@
 <?php
 // Database configuration
-// If MYSQLHOST is set, we are on Railway. Otherwise, we are on Localhost (XAMPP).
-$servername = getenv('MYSQLHOST') ?: "localhost";
-$username   = getenv('MYSQLUSER') ?: "root";
-$password   = getenv('MYSQLPASSWORD') !== false ? getenv('MYSQLPASSWORD') : "";
-$dbname     = getenv('MYSQLDATABASE') ?: "system";
-$port       = getenv('MYSQLPORT') ?: "3306";
+// Check both standard and Railway-specific variable names
+$servername = getenv('MYSQLHOST') ?: getenv('DB_HOST') ?: "localhost";
+$username   = getenv('MYSQLUSER') ?: getenv('DB_USER') ?: "root";
+$password   = getenv('MYSQLPASSWORD') !== false ? getenv('MYSQLPASSWORD') : (getenv('DB_PASSWORD') !== false ? getenv('DB_PASSWORD') : "");
+$dbname     = getenv('MYSQLDATABASE') ?: getenv('DB_NAME') ?: "system";
+$port       = getenv('MYSQLPORT') ?: getenv('DB_PORT') ?: "3306";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
