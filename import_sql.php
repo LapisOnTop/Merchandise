@@ -21,11 +21,14 @@ $errorCount = 0;
 
 foreach ($queries as $query) {
     if (trim($query)) {
-        if ($conn->query($query)) {
-            $successCount++;
-        } else {
-            // Ignore common errors like "Database already exists" or "Drop table failed"
-            // echo "Error in query: " . $conn->error . "<br>";
+        try {
+            if ($conn->query($query)) {
+                $successCount++;
+            } else {
+                $errorCount++;
+            }
+        } catch (mysqli_sql_exception $e) {
+            // Table already exists or other non-fatal error, keep going
             $errorCount++;
         }
     }
