@@ -1,9 +1,8 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include '../includes/db.php';
 $current_page = strtolower(basename(__FILE__));
-
-// Ensure dispatched column exists
-$conn->query("ALTER TABLE vehicle_requests ADD COLUMN IF NOT EXISTS dispatched TINYINT(1) NOT NULL DEFAULT 0");
 
 // Query driver performance from vehicle_requests (dispatched records)
 // On-Time = created_at <= needed_at, Late = created_at > needed_at
