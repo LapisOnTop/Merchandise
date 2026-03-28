@@ -164,7 +164,7 @@ opacity:0.8;
 
 <div class="dashboard">
 
-<a href="hr1/hr1login.php" class="card">
+<a href="/hr1/hr1login.php" class="card">
 <i class="fa-solid fa-users"></i>
 <span>HR1</span>
 
@@ -174,7 +174,7 @@ opacity:0.8;
 
 </a>
 
-<a href="hr2/hr2login.php" class="card">
+<a href="/hr2/hr2login.php" class="card">
 <i class="fa-solid fa-user-group"></i>
 <span>HR2</span>
 
@@ -185,7 +185,7 @@ opacity:0.8;
 
 </a>
 
-<a href="hr3/hr3login.php" class="card">
+<a href="/hr3/hr3login.php" class="card">
 <i class="fa-solid fa-id-badge"></i>
 <span>HR3</span>
 
@@ -196,7 +196,7 @@ opacity:0.8;
 
 </a>
 
-<a href="hr4/hr4login.php" class="card">
+<a href="/hr4/hr4login.php" class="card">
 <i class="fa-solid fa-user-check"></i>
 <span>HR4</span>
 
@@ -207,7 +207,7 @@ opacity:0.8;
 
 </a>
 
-<a href="administrative/adminLogin.php" class="card">
+<a href="/administrative/adminLogin.php" class="card">
 <i class="fa-solid fa-building"></i>
 <span>Administrative</span>
 
@@ -218,7 +218,7 @@ opacity:0.8;
 
 </a>
 
-<a href="core1/core1login.php" class="card">
+<a href="/core1/core1login.php" class="card">
 <i class="fa-solid fa-microchip"></i>
 <span>CORE I</span>
 
@@ -229,7 +229,7 @@ opacity:0.8;
 
 </a>
 
-<a href="core2/core2login.php" class="card">
+<a href="/core2/core2login.php" class="card">
 <i class="fa-solid fa-gears"></i>
 <span>CORE 2</span>
 
@@ -240,7 +240,7 @@ opacity:0.8;
 
 </a>
 
-<a href="log1/log1login.php" class="card">
+<a href="/log1/log1login.php" class="card">
 <i class="fa-solid fa-truck"></i>
 <span>Logistic 1</span>
 
@@ -250,7 +250,7 @@ opacity:0.8;
 
 </a>
 
-<a href="log2/log2login.php" class="card">
+<a href="/log2/log2login.php" class="card">
 <i class="fa-solid fa-warehouse"></i>
 <span>Logistic 2</span>
 
@@ -260,7 +260,7 @@ opacity:0.8;
 
 </a>
 
-<a href="finance/financeLogin.php" class="card">
+<a href="/finance/financeLogin.php" class="card">
 <i class="fa-solid fa-coins"></i>
 <span>Finance</span>
 
@@ -279,4 +279,3 @@ opacity:0.8;
 
 </body>
 </html>
-```
