@@ -18,9 +18,6 @@ ini_set('display_errors', 1);
 include '../includes/db.php';
 $current_page = strtolower(basename(__FILE__));
 
-// Ensure dispatched column exists
-$conn->query("ALTER TABLE vehicle_requests ADD COLUMN IF NOT EXISTS dispatched TINYINT(1) NOT NULL DEFAULT 0");
-
 // Fetch trip logs from vehicle_requests (dispatched records)
 $trip_logs_sql = "SELECT add_driver AS driver_name, destination, needed_at, created_at FROM vehicle_requests WHERE dispatched = 1 ORDER BY id DESC";
 $trip_logs_result = $conn->query($trip_logs_sql);
