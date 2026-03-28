@@ -3,10 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include '../includes/db.php';
 
-// Ensure add_vehicle and add_driver columns exist
-$conn->query("ALTER TABLE vehicle_requests ADD COLUMN IF NOT EXISTS add_vehicle VARCHAR(255) DEFAULT NULL");
-$conn->query("ALTER TABLE vehicle_requests ADD COLUMN IF NOT EXISTS add_driver VARCHAR(255) DEFAULT NULL");
-
 // Handle assignment submission (AJAX)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'assign_dispatch') {
     header('Content-Type: application/json; charset=utf-8');

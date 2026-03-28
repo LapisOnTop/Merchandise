@@ -48,10 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     header("Location: dispatch.php");
     exit;
 }
-
-// Ensure dispatched column exists
-$conn->query("ALTER TABLE vehicle_requests ADD COLUMN IF NOT EXISTS dispatched TINYINT(1) NOT NULL DEFAULT 0");
-
+// Fetch dispatch data from vehicle_requests — those assigned but not yet dispatched
 // Fetch dispatch data from vehicle_requests — those assigned but not yet dispatched
 $sql = "SELECT id, request_id, vehicle_size, pickup_location, destination, add_vehicle, add_driver FROM vehicle_requests WHERE (add_vehicle IS NOT NULL AND add_vehicle != '') AND (add_driver IS NOT NULL AND add_driver != '') AND dispatched = 0";
 $result = $conn->query($sql);

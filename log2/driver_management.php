@@ -84,10 +84,7 @@
         <?php
         include '../includes/db.php';
 
-        // Ensure work_status exists (for availability tracking)
-        $conn->query("ALTER TABLE employees ADD COLUMN IF NOT EXISTS work_status ENUM('available','unavailable','assigned','delivering') NOT NULL DEFAULT 'available'");
-
-        $sql = "SELECT id, job_id, full_name, email, phone, home_address, date_of_birth, gender, civil_status, nationality, application_date, sss_number, philhealth_number, pagibig_number, position, work_status FROM employees WHERE position = 'Driver'";
+$sql = "SELECT id, job_id, full_name, email, phone, home_address, date_of_birth, gender, civil_status, nationality, application_date, sss_number, philhealth_number, pagibig_number, position, work_status FROM employees WHERE position = 'Driver'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
