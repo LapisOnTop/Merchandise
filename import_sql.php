@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 include 'includes/db.php';
 
 echo "<h2>Railway Database Importer</h2>";
+echo "Attempting to connect to host: " . ($servername) . "...<br>";
 
 $sqlFile = 'system (29).sql';
 if (!file_exists($sqlFile)) {
