@@ -9,6 +9,8 @@
 <body>
 
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include '../includes/db.php';
 $current_page = strtolower(basename(__FILE__));
 
