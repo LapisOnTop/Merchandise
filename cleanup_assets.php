@@ -3,15 +3,22 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include 'includes/db.php';
 
-echo "<h2>Production Assets Cleanup...</h2>";
+echo "<h2>Total System Reset...</h2>";
 
-// 1. Delete all vehicles and leave 1
+// 1. Wipe all Logs and Requests (Trips, Performance, Maintenance, Fuel, etc.)
+$conn->query("DELETE FROM vehicle_requests");
+$conn->query("DELETE FROM maintenance_logs");
+$conn->query("DELETE FROM fuel_logs");
+$conn->query("DELETE FROM accident_reports");
+echo "Wiped all Requests, Trip Logs, and Performance data.<br>";
+
+// 2. Delete all vehicles and leave 1
 $conn->query("DELETE FROM vehicles");
 $conn->query("INSERT INTO vehicles (brand, model, plate_number, status, vehicle_type, year_model, color, fuel_type, transmission_type) 
                VALUES ('Ford', 'Ranger', 'PRO-001', 'Available', 'Pickup', '2024', 'Orange', 'Diesel', 'Automatic')");
-echo "Cleaned Vehicles: Left only Ford Ranger PRO-001.<br>";
+echo "Cleaned Vehicles: Left only Ford Ranger.<br>";
 
-// 2. Delete all drivers/employees and leave 1
+// 3. Delete all drivers/employees and leave 1
 $conn->query("DELETE FROM employees WHERE position = 'Driver'");
 $conn->query("INSERT INTO employees (job_id, full_name, email, phone, home_address, date_of_birth, gender, civil_status, nationality, position, work_status) 
                VALUES (201, 'Ricardo Dalisay', 'cardos@log2.ph', '09170000001', 'Luzon, PH', '1985-05-15', 'male', 'married', 'Filipino', 'Driver', 'available')");
