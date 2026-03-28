@@ -5,11 +5,16 @@ include 'includes/db.php';
 
 echo "<h2>Total System Reset...</h2>";
 
-// 1. Wipe all Logs and Requests (Trips, Performance, Maintenance, Fuel, etc.)
-$conn->query("DELETE FROM vehicle_requests");
-$conn->query("DELETE FROM maintenance_logs");
-$conn->query("DELETE FROM fuel_logs");
-$conn->query("DELETE FROM accident_reports");
+// Wipe major tables (with try-catch to avoid crashes if tables don't exist)
+$tables = ['vehicle_requests', 'maintenance_logs', 'fuel_logs', 'accident_reports'];
+foreach ($tables as $table) {
+    try {
+        $conn->query("DELETE FROM $table");
+        echo "Cleared $table...<br>";
+    } catch (mysqli_sql_exception $e) {
+        // Just skip if table doesn't exist
+    }
+}
 echo "Wiped all Requests, Trip Logs, and Performance data.<br>";
 
 // 2. Delete all vehicles and leave 1
